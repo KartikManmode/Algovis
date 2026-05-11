@@ -2,15 +2,26 @@ import { useState } from "react"
 import Hero from "./components/Hero"
 import FilterBar from "./components/FilterBar"
 import BounceCards from "./components/BounceCards"
+import FibonacciVisualizer from "./fib/FibonacciVisualizer"
 import { algorithms, filters } from "./data/algorithms"
 
 function App() {
   const [active, setActive] = useState("all")
+  const [selectedAlgo, setSelectedAlgo] = useState(null)
 
   const filtered =
     active === "all"
       ? algorithms
       : algorithms.filter((a) => a.tag === active)
+
+  if (selectedAlgo?.id === "fibonacci") {
+    return (
+      <FibonacciVisualizer
+        algo={selectedAlgo}
+        onBack={() => setSelectedAlgo(null)}
+      />
+    )
+  }
 
   return (
     <div className="page">
@@ -30,7 +41,11 @@ function App() {
         onFilter={setActive}
       />
 
-      <BounceCards items={filtered} enableHover />
+      <BounceCards
+        items={filtered}
+        enableHover
+        onSelect={setSelectedAlgo}
+      />
     </div>
   )
 }

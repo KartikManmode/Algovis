@@ -29,7 +29,24 @@ function hexToHsl(hex) {
   return `${Math.round((hue + 360) % 360)} ${Math.round(saturation * 100)} ${Math.round(lightness * 100)}`
 }
 
-function AlgoCard({ algo }) {
+function AlgoCard({ algo, onSelect }) {
+  const isInteractive = algo.id === "fibonacci"
+
+  const handleSelect = () => {
+    if (isInteractive) {
+      onSelect?.(algo)
+    }
+  }
+
+  const handleKeyDown = (event) => {
+    if (!isInteractive) return
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()
+      handleSelect()
+    }
+  }
+
   return (
     <BorderGlow
       glowColor={hexToHsl(algo.accent)}
@@ -40,8 +57,13 @@ function AlgoCard({ algo }) {
       fillOpacity={0.35}
     >
       <div
-        className="algo-card"
+        className={`algo-card ${isInteractive ? "is-interactive" : ""}`}
+        role={isInteractive ? "button" : undefined}
+        tabIndex={isInteractive ? 0 : undefined}
+        aria-label={isInteractive ? `Open ${algo.title} visualizer` : undefined}
         style={{ "--accent": algo.accent }}
+        onClick={handleSelect}
+        onKeyDown={handleKeyDown}
       >
         <div className="card-glow" />
 
