@@ -33,6 +33,7 @@ export const algorithms = [
     icon: "⊣",
     complexity: "O(n²)",
     difficulty: 1,
+    href: "/src/insertion_sort/index.html",
   },
   {
     id: "merge",
