@@ -5,12 +5,14 @@ import BounceCards from "./components/BounceCards"
 import FibonacciVisualizer from "./fib/FibonacciVisualizer"
 import InsertionSortVisualizer from "./insertion_sort/InsertionSortVisualizer"
 import SelectionSortVisualizer from "./selection_sort/SelectionSortVisualizer"
+import MergeSortVisualizer from "./merge_sort/MergeSortVisualizer"
 import { algorithms, filters } from "./data/algorithms"
 
 const visualizers = {
   fibonacci: FibonacciVisualizer,
   insertion: InsertionSortVisualizer,
   selection: SelectionSortVisualizer,
+  merge: MergeSortVisualizer,
 }
 
 function App() {

@@ -43,9 +43,9 @@ export const algorithms = [
     tagLabel: "Sorting",
     accent: "#f472b6",
     icon: "⊕",
-    complexity: "O(n log n)",
-    difficulty: 2,
-    href: "/src/merge_sort/index.html",
+  complexity: "O(n log n)",
+  difficulty: 2,
+  visualizer: true,
   },
   {
     id: "quick",
