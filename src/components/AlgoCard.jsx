@@ -29,9 +29,10 @@ function hexToHsl(hex) {
   return `${Math.round((hue + 360) % 360)} ${Math.round(saturation * 100)} ${Math.round(lightness * 100)}`
 }
 
-<<<<<<< HEAD
 function AlgoCard({ algo, onSelect }) {
   const isInteractive = algo.id === "fibonacci"
+  const CardTag = algo.href ? "a" : "div"
+  const cardProps = algo.href ? { href: algo.href } : {}
 
   const handleSelect = () => {
     if (isInteractive) {
@@ -47,11 +48,6 @@ function AlgoCard({ algo, onSelect }) {
       handleSelect()
     }
   }
-=======
-function AlgoCard({ algo }) {
-  const CardTag = algo.href ? "a" : "div"
-  const cardProps = algo.href ? { href: algo.href } : {}
->>>>>>> fe5e070a6b7bcb1189624c2986395809b3477fea
 
   return (
     <BorderGlow
@@ -62,21 +58,19 @@ function AlgoCard({ algo }) {
       glowRadius={34}
       fillOpacity={0.35}
     >
-<<<<<<< HEAD
-      <div
-        className={`algo-card ${isInteractive ? "is-interactive" : ""}`}
+      <CardTag
+        className={[
+          "algo-card",
+          algo.href ? "algo-card-link" : "",
+          isInteractive ? "is-interactive" : "",
+        ].filter(Boolean).join(" ")}
         role={isInteractive ? "button" : undefined}
         tabIndex={isInteractive ? 0 : undefined}
         aria-label={isInteractive ? `Open ${algo.title} visualizer` : undefined}
         style={{ "--accent": algo.accent }}
         onClick={handleSelect}
         onKeyDown={handleKeyDown}
-=======
-      <CardTag
-        className={`algo-card ${algo.href ? "algo-card-link" : ""}`}
-        style={{ "--accent": algo.accent }}
         {...cardProps}
->>>>>>> fe5e070a6b7bcb1189624c2986395809b3477fea
       >
         <div className="card-glow" />
 
