@@ -29,6 +29,7 @@ function hexToHsl(hex) {
   return `${Math.round((hue + 360) % 360)} ${Math.round(saturation * 100)} ${Math.round(lightness * 100)}`
 }
 
+<<<<<<< HEAD
 function AlgoCard({ algo, onSelect }) {
   const isInteractive = algo.id === "fibonacci"
 
@@ -46,6 +47,11 @@ function AlgoCard({ algo, onSelect }) {
       handleSelect()
     }
   }
+=======
+function AlgoCard({ algo }) {
+  const CardTag = algo.href ? "a" : "div"
+  const cardProps = algo.href ? { href: algo.href } : {}
+>>>>>>> fe5e070a6b7bcb1189624c2986395809b3477fea
 
   return (
     <BorderGlow
@@ -56,6 +62,7 @@ function AlgoCard({ algo, onSelect }) {
       glowRadius={34}
       fillOpacity={0.35}
     >
+<<<<<<< HEAD
       <div
         className={`algo-card ${isInteractive ? "is-interactive" : ""}`}
         role={isInteractive ? "button" : undefined}
@@ -64,6 +71,12 @@ function AlgoCard({ algo, onSelect }) {
         style={{ "--accent": algo.accent }}
         onClick={handleSelect}
         onKeyDown={handleKeyDown}
+=======
+      <CardTag
+        className={`algo-card ${algo.href ? "algo-card-link" : ""}`}
+        style={{ "--accent": algo.accent }}
+        {...cardProps}
+>>>>>>> fe5e070a6b7bcb1189624c2986395809b3477fea
       >
         <div className="card-glow" />
 
@@ -88,7 +101,7 @@ function AlgoCard({ algo, onSelect }) {
         <div className="card-meta">
           <span className="meta-item">⏱ {algo.complexity}</span>
         </div>
-      </div>
+      </CardTag>
     </BorderGlow>
   )
 }
