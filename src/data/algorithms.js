@@ -45,6 +45,7 @@ export const algorithms = [
     icon: "⊕",
     complexity: "O(n log n)",
     difficulty: 2,
+    href: "/src/merge_sort/index.html",
   },
   {
     id: "quick",
