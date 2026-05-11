@@ -21,7 +21,7 @@ export const algorithms = [
     icon: "◎",
     complexity: "O(n²)",
     difficulty: 1,
-    href: "/src/selection_sort/index.html",
+    visualizer: true,
   },
   {
     id: "insertion",
@@ -33,7 +33,7 @@ export const algorithms = [
     icon: "⊣",
     complexity: "O(n²)",
     difficulty: 1,
-    href: "/src/insertion_sort/index.html",
+    visualizer: true,
   },
   {
     id: "merge",
@@ -103,6 +103,7 @@ export const algorithms = [
     icon: "φ",
     complexity: "O(2ⁿ) → O(n)",
     difficulty: 2,
+    visualizer: true,
   },
   {
     id: "towerofhanoi",

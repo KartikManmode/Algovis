@@ -3,7 +3,15 @@ import Hero from "./components/Hero"
 import FilterBar from "./components/FilterBar"
 import BounceCards from "./components/BounceCards"
 import FibonacciVisualizer from "./fib/FibonacciVisualizer"
+import InsertionSortVisualizer from "./insertion_sort/InsertionSortVisualizer"
+import SelectionSortVisualizer from "./selection_sort/SelectionSortVisualizer"
 import { algorithms, filters } from "./data/algorithms"
+
+const visualizers = {
+  fibonacci: FibonacciVisualizer,
+  insertion: InsertionSortVisualizer,
+  selection: SelectionSortVisualizer,
+}
 
 function App() {
   const [active, setActive] = useState("all")
@@ -14,9 +22,11 @@ function App() {
       ? algorithms
       : algorithms.filter((a) => a.tag === active)
 
-  if (selectedAlgo?.id === "fibonacci") {
+  const SelectedVisualizer = selectedAlgo ? visualizers[selectedAlgo.id] : null
+
+  if (SelectedVisualizer) {
     return (
-      <FibonacciVisualizer
+      <SelectedVisualizer
         algo={selectedAlgo}
         onBack={() => setSelectedAlgo(null)}
       />

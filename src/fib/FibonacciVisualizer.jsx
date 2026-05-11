@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react"
+import "./FibonacciVisualizer.css"
 
 const MIN_N = 0
 const MAX_N = 8
